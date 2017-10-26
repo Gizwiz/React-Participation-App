@@ -24,12 +24,17 @@ class Participants extends Component{
   }
     
     originalElementValues = [];
-
+       
     handleSubmit (event){
                         
         event.preventDefault();
         event.stopPropagation();
-        var id = ((this.state.data[this.state.data.length-1].id) + 1);
+        var id;
+        try{
+          this.id = ((this.state.data[this.state.data.length-1].id) + 1);  
+        }catch(e){
+            this.id=1;   
+        }
         var name = event.target.nameInput.value;
         var email = event.target.emailInput.value;
         var phone = event.target.phoneInput.value;
@@ -74,8 +79,7 @@ class Participants extends Component{
     }
 
     saveData(savedata){
-        console.log("To server: "+JSON.stringify(savedata));
-        fetch('/save', {  
+    /*   fetch('/save', {  
           method: 'POST',
           headers: {
             'Accept': 'application/json',
@@ -83,7 +87,7 @@ class Participants extends Component{
           },
           body: JSON.stringify(savedata)
         }) 
-        console.log(savedata);
+    */
         this.setState({data: savedata});
 
     }
@@ -97,7 +101,7 @@ class Participants extends Component{
         var pn = /^[+]?[(]?[0-9]{3}[)]?[-\s.]?[0-9]{3}[-\s.]?[0-9]{4,6}$/im;
         return pn.test(phoneNumber);
     }
-
+    
     edit(index){
         var row = document.getElementsByName(index);
         //Ignore the buttons in the loop, handle them separately
@@ -105,7 +109,7 @@ class Participants extends Component{
             var element = row.item(0).childNodes[i];
             var elementValue = element.innerHTML;
             this.originalElementValues[i] = elementValue;
-            element.innerHTML = '<input type="text" />';
+            element.innerHTML = '<input className="editInput" type="text" />';
             element.childNodes.item(0).value=elementValue;
         }
         
@@ -129,18 +133,12 @@ class Participants extends Component{
     
     cancel(index){
         var row = document.getElementsByName(index);
-        var buttons = row.item(0).getElementsByTagName("button");
-        
         for(var i=0; i<(row.item(0).childNodes.length-1); i++){
             var element = row.item(0).childNodes[i];
             element.innerHTML = this.originalElementValues[i];           
         }
+        this.resetButtons(row)
 
-        
-        buttons[0].className = "editButton";
-        buttons[1].className = "editButton";
-        buttons[2].className = "invisButton";
-        buttons[3].className = "invisButton";
     }
 
     save(index){
@@ -158,17 +156,20 @@ class Participants extends Component{
         row.item(0).childNodes.item(0).innerHTML = name;
         row.item(0).childNodes.item(1).innerHTML = email;
         row.item(0).childNodes.item(2).innerHTML = phone;
-        
+        this.resetButtons(row)
+        this.saveData(this.state.data);
+    }
+
+    resetButtons(row){
+        var buttons = row.item(0).getElementsByTagName("button");
         buttons[0].className = "editButton";
         buttons[1].className = "editButton";
         buttons[2].className = "invisButton";
         buttons[3].className = "invisButton";
-        this.saveData(this.state.data);
     }
 
     onSort(event, sortKey){
         const data = this.state.data;
-        const direction = this.state.sort.direction;
         var sorted = data.sort((a, b) => a[sortKey].localeCompare(b[sortKey]));
         if (this.state.sort.direction === 'desc') {
             sorted.reverse();
@@ -209,7 +210,7 @@ class Participants extends Component{
                                     <td data-title="Name">{participant.name}</td>
                                     <td data-title="Email">{participant.email}</td>
                                     <td data-title="Phone">{participant.phone}</td>
-                                    <td>
+                                    <td className="buttonTd">
                                         <button className='editButton' onClick={(e) => that.edit(index)} ><img src={edit} alt={""}/></button>
                                         <button className='editButton' onClick={(e) => that.remove(participant.id)}><img src={remove} alt={""}/></button>
                                         <button className='invisButton' onClick={(e) => that.cancel(index)}>Cancel</button>
