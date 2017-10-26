@@ -9,7 +9,7 @@ Deployed at https://secret-mountain-65276.herokuapp.com/
 
 [Node.js version 6.0 or newer](https://nodejs.org/en/)
 Verify your Node.js version with the following command in the Node.js command prompt:  
-```sh
+```
     node -v
 ```
 Also recommended is [Git](https://git-scm.com/downloads) for easier deployment of this app.
@@ -18,25 +18,25 @@ Also recommended is [Git](https://git-scm.com/downloads) for easier deployment o
 
 [Download and unzip](https://github.com/Gizwiz/React-Participation-App) the project from the repository, or clone via git to your preferred directory
 
-```sh
+```
     git clone https://github.com/Gizwiz/React-Participation-App.git
 ```
 
 This will result in a folder named "react-participation app" containing server.js, package.json, src, and public.
 
 In the Node.js command prompt change directory to "react-participation app" and run the  **npm install** command. NPM is normally installed along with Node.js, but it can also be [installed separately](https://www.npmjs.com/get-npm) if it is missing. You can verify your NPM version with: 
-```sh
+```
     npm -v
 ```
 
 Change directory to the app and install all node dependencies with the following commands. This may take a minute or two to complete.
-```sh
+```
     cd react-participation-app
     npm install
 ```
 
 Finally, build the project with:
-```sh
+```
     npm run build
 ```
 
