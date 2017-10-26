@@ -29,12 +29,13 @@ In the Node.js command prompt change directory to "react-participation app" and 
     npm -v
 ```
 
-Install all node dependencies with
+Change directory to the app and install all node dependencies with the following commands. This may take a minute or two to complete.
 ```sh
+    cd react-participation-app
     npm install
 ```
 
-To quickly verify that things are set up correctly run the following from the app's directory in the Node.js command prompt. It will open the app on a local server in the browser.
+Finally, build the project with:
 ```sh
     npm run build
 ```
