@@ -12,17 +12,16 @@ Verify your Node.js version with the following command in the Node.js command pr
 ```
     node -v
 ```
-Also recommended is [Git](https://git-scm.com/downloads) for easier deployment of this app.
+[Git](https://git-scm.com/downloads) is recommended for easier deployment of this app. A quick tutorial of Git can be found [here](https://github.com/codepath/ios_guides/wiki/Using-Git-with-Terminal)
 
 ## Step 1. Create Production Build
 
-[Download and unzip](https://github.com/Gizwiz/React-Participation-App) the project from the repository, or clone via git to your preferred directory
-
+[Download and unzip](https://github.com/Gizwiz/React-Participation-App) the project from the repository to your preferred destination, or navigate to a directory in the command line and clone with Git:
 ```
     git clone https://github.com/Gizwiz/React-Participation-App.git
 ```
 
-This will result in a folder named "react-participation app" containing server.js, package.json, src, and public.
+This will result in a folder named "react-participation-app" containing server.js, package.json, src, and public.
 
 In the Node.js command prompt change directory to "react-participation app" and run the  **npm install** command. NPM is normally installed along with Node.js, but it can also be [installed separately](https://www.npmjs.com/get-npm) if it is missing. You can verify your NPM version with: 
 ```
