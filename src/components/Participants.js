@@ -37,8 +37,6 @@ class Participants extends Component{
         var nameOk, emailOk, phoneOk = false;
         var arr = {id: id, name: name, email:email, phone: phone};
 
-        this.saveData();
-        
         if(name==="" || !name.replace(/\s/g, '').length){
          document.getElementsByName("nameInput")[0].style.borderColor = "red";
          nameOk = false;  
@@ -64,14 +62,12 @@ class Participants extends Component{
         
         if(nameOk && emailOk && phoneOk){
             this.setState({data: this.state.data.concat([arr])});
-            
             var inputs = document.getElementsByTagName("input");
 
             for(var i=0; i<inputs.length; i++){
                 inputs[i].value="";
                 inputs[i].style.borderColor = "#f1f1f1";
             }
-
         } else {
             return;
         }
@@ -186,7 +182,6 @@ class Participants extends Component{
 
     render(){
         var newdata = this.state.data;
-        
         var that = this;
     return (
         <div>
@@ -224,7 +219,6 @@ class Participants extends Component{
                                 </tr>
                              );            
                           })}
-
                     </tbody>
                 </table>
             </div>
