@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import edit from './edit.png';
 import remove from './remove.png';
 import participantsList from './participantsList.json';
-import $ from 'jquery'; 
 
 class Participants extends Component{
     constructor(props){
@@ -122,7 +121,7 @@ class Participants extends Component{
         var d = this.state.data;
         var filtered = d.filter(function(item){
              console.log(item.id);
-            return item.id!=id;
+            return item.id!==id;
         });
         console.log(filtered);
         this.saveData(filtered);
