@@ -1,5 +1,5 @@
 {
-  "name": "singup-app",
+  "name": "react-participation-app",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -25,7 +25,7 @@
     "type": "git",
     "url": "git+https://github.com/Gizwiz/React-Participation-App.git"
   },
-  "author": "",
+  "author": "Markus Sahrakorpi",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/Gizwiz/React-Participation-App/issues"
