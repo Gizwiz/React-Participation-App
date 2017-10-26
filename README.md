@@ -1,7 +1,7 @@
 A small participation signup form with React.js.
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
-Deployed at https://secret-mountain-65276.herokuapp.com/
+Deployed at https://tranquil-wave-56721.herokuapp.com/
 
 # DEPLOYMENT
 
